@@ -8,29 +8,34 @@ hr { border : 3px solid yellowgreen; }
 span { color : blue; font-size : 20px; }
 </style><title>맛집 추천해주는 사이트</title></head>
 <body>
+<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.0 Transitional//EN”>
+<body>
 <h1>맛집 추천해주는 사이트</h1>
 <hr>
 <hr>
 <hr>
 <h3>위치 선택</h3>
-<h5>위치 이름 누르면 사이트로 이동</h5>
 <form>
 <label>
-<a href="http://127.0.0.1:5000/북문">
-북문</a> 
+<form method="POST" action="/info">
+</form>
+
+<form method=“GET" action="/info">
+<select name="rating"
+</option>  
+<option value="쪽문"> 쪽문 </option>  
+<option value="북문"> 북문 </option>  
+<option value="정문"> 정문 </option> 
+<option value="테크노문"> 테크노문 </option> 
+</select>
+<button type="submit"> Submit </button>
+</form>
+
 </label><br>
 <label>
-<a href="http://127.0.0.1:5000/쪽문">
-쪽문</a> 
 </label><br>
-<label>
-<a href="http://127.0.0.1:5000/정문">
-정문</a> 
-</label><br>
-<label>
-<a href="http://127.0.0.1:5000/테크노문">
-테크노문</a> 
-</label><br>
+<hr>
+<hr>
 <hr>
 </form>
 </body>
