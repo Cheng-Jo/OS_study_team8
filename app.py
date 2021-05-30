@@ -1,29 +1,49 @@
 #!/usr/bin/python3
+#-*- coding: utf-8 -*-
 
-from flask import Flask
+import argparse
+import subprocess
+from flask import Flask, jsonify
 from flask import render_template
+from flask import request
 app = Flask(__name__)
 
 @app.route('/')
 def index():
 	return render_template('home.html')
 
-@app.route('/북문')
-def index2():
+@app.route('/east', methods=['POST'])
+def east():
+        error = None
+        myString = request.form['name']
+        list = myString.split()
+        return render_template('north.html', info1=list[0], info2 = list[1], info3 = list[2], info4 = list[3], info5 = list[4])
 
-	return render_template('북문.html')
 
-@app.route('/쪽문')
-def index3():
-	return render_template('쪽문.html')
+@app.route('/west', methods=['POST'])
+def west():
+        error = None
+        myString = request.form['name']
+        list = myString.split()
+        return render_template('north.html', info1=list[0], info2 = list[1], info3 = list[2], info4 = list[3], info5 = list[4])
 
-@app.route('/정문')
-def index4():
-	return render_template('정문.html')
+@app.route('/south', methods=['POST'])
+def south():
+        error = None
+        myString = request.form['name']
+	list = myString.split()
+        return render_template('north.html', info1=list[0], info2 = list[1], info3 = list[2], info4 = list[3], info5 = list[4])
 
-@app.route('/테크노문')
-def index5():
-	return render_template('테크노문.html')
+
+
+@app.route('/north', methods=['POST'])
+def north():
+        error = None
+	myString = request.form['name']
+	list = myString.split()
+        return render_template('north.html', info1=list[0], info2 = list[1], info3 = list[2], info4 = list[3], info5 = list[4])
+
+
 
 if __name__=="__main__":
   app.run(debug=True)

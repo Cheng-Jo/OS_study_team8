@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
 <style>
@@ -14,24 +14,23 @@ span { color : blue; font-size : 20px; }
 <hr>
 <h3>위치 선택</h3>
 <h5>위치 이름 누르면 사이트로 이동</h5>
-<form>
-<label>
-<a href="http://127.0.0.1:5000/북문">
-북문</a> 
-</label><br>
-<label>
-<a href="http://127.0.0.1:5000/쪽문">
-쪽문</a> 
-</label><br>
-<label>
-<a href="http://127.0.0.1:5000/정문">
-정문</a> 
-</label><br>
-<label>
-<a href="http://127.0.0.1:5000/테크노문">
-테크노문</a> 
-</label><br>
 <hr>
+<form method="POST" action="/north">
+ 북문 <input name="name" type="text"><br/>
+ <button type="submit"> submit </button>
 </form>
+<form method="POST" action="/south">
+ 정문 <input name="name" type="text"><br/>
+ <button type="submit"> submit </button>
+</form>
+<form method="POST" action="/west">
+ 서문  <input name="name" type="text"><br/>
+ <button type="submit"> submit </button>
+</form>
+<form method="POST" action="/east">
+ 쪽문 <input name="name" type="text"><br/>
+ <button type="submit"> submit </button>
+</form>
+
 </body>
 </html>
