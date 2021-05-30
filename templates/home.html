@@ -1,48 +1,10 @@
-<<<<<<< HEAD
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-<style>
-body { background-color : #00BFEF; }
-h3 { color : #F43D00; }
-hr { border : 3px solid yellowgreen; }
-span { color : blue; font-size : 20px; }
-</style><title>맛집 추천해주는 사이트</title></head>
-<body>
-<h1>맛집 추천해주는 사이트</h1>
-<hr>
-<hr>
-<hr>
-<h3>위치 선택</h3>
-<h5>위치 이름 누르면 사이트로 이동</h5>
-<hr>
-<form method="POST" action="/north">
- 북문 <input name="name" type="text"><br/>
- <button type="submit"> submit </button>
-</form>
-<form method="POST" action="/south">
- 정문 <input name="name" type="text"><br/>
- <button type="submit"> submit </button>
-</form>
-<form method="POST" action="/west">
- 서문  <input name="name" type="text"><br/>
- <button type="submit"> submit </button>
-</form>
-<form method="POST" action="/east">
- 쪽문 <input name="name" type="text"><br/>
- <button type="submit"> submit </button>
-</form>
-
-</body>
-</html>
-=======
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-body { background-color : #00BFEF; }
+body { background-color : #A7C181; }
 h3 { color : #F43D00; }
-hr { border : 3px solid yellowgreen; }
+hr { border : 3px solid #F7E0A5; }
 span { color : blue; font-size : 20px; }
 </style><title>맛집 추천해주는 사이트</title></head>
 <body>
@@ -52,7 +14,7 @@ span { color : blue; font-size : 20px; }
 <hr>
 <hr>
 <hr>
-<h3>위치 선택</h3>
+<h3>사이트 선택</h3>
 <form>
 <label>
 <form method="POST" action="/info">
@@ -61,10 +23,9 @@ span { color : blue; font-size : 20px; }
 <form method=“GET" action="/info">
 <select name="rating"
 </option>  
-<option value="쪽문"> 쪽문 </option>  
-<option value="북문"> 북문 </option>  
-<option value="정문"> 정문 </option> 
-<option value="테크노문"> 테크노문 </option> 
+<option value="식신"> 식신 </option>  
+<option value="다이닝 코드"> 다이닝 코드 </option>  
+<option value="트립어드바이저"> 트립어드바이저 </option> 
 </select>
 <button type="submit"> Submit </button>
 </form>
@@ -78,4 +39,3 @@ span { color : blue; font-size : 20px; }
 </form>
 </body>
 </html>
->>>>>>> 727bd81910041a2405fe57eec7556e7ead1f10c5
