@@ -21,6 +21,7 @@ if __name__== '__main__':
 	print(tlist)
 	for i in range(0,10):
 		e={
+			"site":"diningcode",
         	        "name":tlist[i].encode('utf-8'),
 		}
 
