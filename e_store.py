@@ -57,6 +57,7 @@ if __name__== '__main__':
 		e1={
 			"site":"siksin",
 			"name":siksin[i].encode('utf-8'),
+			"address":"남구"
 		}
 		res = es.index(index='siksin', doc_type='sik', id = i, body =e1)
 		print(res)
@@ -64,6 +65,7 @@ if __name__== '__main__':
 		e2={
 			"site":"trip",
 			"name":trip[i].encode('utf-8'),
+			"address":"북구"
 		}
 		res2 = es.index(index='trip', doc_type='tri', id = i, body =e2)
 		print(res2)
@@ -71,58 +73,22 @@ if __name__== '__main__':
 		e={
 			"site":"d_code",
 			"name":d_code[i].encode('utf-8'),
+			"address":"달서구"
 		}
+		if i < 3:
+			e={
+				"site":"d_code",
+				"name":d_code[i].encode('utf-8'),
+				"address":"남구"
+			}
+		else:
+			e={
+				"site":"d_code",
+				"name":d_code[i].encode('utf-8'),
+				"address":"북구"
+			}
+
+
 		res = es.index(index='d_code', doc_type='code', id = i, body =e)
 		print(res)
-		es = Elasticsearch([{'host':es_host, 'port':es_port}], timeout=30)
-	query1 = {"query":{"bool":{"must":[{"match":{"site":"siksin"}}]}}}
-	query2 = {"query":{"bool":{"must":[{"match":{"site":"trip"}}]}}}
-	query3 = {"query":{"bool":{"must":[{"match":{"site":"d_code"}}]}}}
-
-
-	lst1 =[]
-	lst2 =[]
-	lst3 = []
-	while True:
-		try:
-			docs = es.search(index='siksin', body=query1, size=5)
-			break
-		except Exception as e:
-			print('error')
-			continue
-	if docs['hits']['total']['value']>0:	
-		for doc in docs['hits']['hits']:
-			print(doc['_source'])
-			tmp = list(doc['_source'].values())
-			print(tmp)
-			lst1.append(tmp)
-	print(lst1)
-	while True:
-		try:
-			docs = es.search(index='trip', body=query2, size=5)
-			break
-		except Exception as e:
-			print(1)
-			continue
-	if docs['hits']['total']['value']>0:
-		for doc in docs['hits']['hits']:
-			print(doc['_source'])
-			tmp = list(doc['_source'].values())
-			print(tmp)
-			lst2.append(tmp)
-	print(lst2)
-	while True:
-		try:
-			docs = es.search(index='d_code', body=query3, size=5)
-			break
-		except Exception as e:
-			print(1)
-			continue
-	if docs['hits']['total']['value']>0:
-		for doc in docs['hits']['hits']:
-			print(doc['_source'])
-			tmp = list(doc['_source'].values())
-			print(tmp)
-			lst3.append(tmp)
-	print(lst3)
 
