@@ -4,24 +4,90 @@
 <style>
 body { background-color : #A7C181; }
 h3 { color : #F43D00; }
+h4 { color : #925452; }
 hr { border : 3px solid #F7E0A5; }
 span { color : blue; font-size : 20px; }
-</style><title>선택한 사이트: </title></head>
+</style><title>선택한 지역: </title></head>
 <body>
-<h3> 선택한 사이트: {{name}} </h3>
+<h3> 선택한 지역: {{name}} </h3>
 <hr>
 <hr>
 <hr>
-<h3>맛집 리스트</h3>
+<h3>{{name}}에 위치한 맛집 리스트</h3>
 
-    <ul>
-        {% for i in list %}
-	<hr>
-	<h9><<이름>><h9>
-            <li>{{i}}</li>
-        {% endfor %}
+<script>
+var siksin_location_data = {{siksin_location|tojson}} ;
+var d_address_data = {{d_address|tojson}} ;
+var trip_address_data = {{trip_address|tojson}} ;
+var menupan_location_data = {{location|tojson}} ;
 
-    </ul>
+var siksin = {{lst1|tojson}} ;
+var trip = {{lst2|tojson}} ;
+var d_code = {{lst3|tojson}} ;
+var menupan = {{lst4|tojson}} ;
+
+
+var myname = {{name|tojson}} ;
+
+var count =0;
+document.write("<h4>식신의 추천 맛집 목록</h4>");
+for(i=0;i<5;i++){
+	if(siksin_location_data[i].includes(myname)){
+		count++;
+		document.write(siksin[i]);
+		document.write("<br>");
+	}
+}
+if (count==0){
+document.write("검색 결과 없음");
+}
+
+var count =0;
+document.write("<h4>트립어드바이저의 추천 맛집 목록</h4>");
+for(i=0;i<5;i++){
+	if(trip_address_data[i].includes(myname)){
+		count++;
+		document.write(trip[i])
+		document.write("<br>");
+	}
+}
+if (count==0){
+document.write("검색 결과 없음");
+}
+
+
+var count =0;
+document.write("<h4>다이닝 코드의 추천 맛집 목록</h4>");
+for(i=0;i<5;i++){
+	if(d_address_data[i].includes(myname)){
+		count++;
+		document.write(d_code[i])
+		document.write("<br>");
+	}
+}
+if (count==0){
+document.write("검색 결과 없음");
+}
+
+
+var count =0;
+document.write("<h4>메뉴판의 추천 맛집 목록</h4>");
+for(i=0;i<5;i++){
+	if(menupan_location_data[i].includes(myname)){
+		count++;
+		document.write(menupan[i])
+		document.write("<br>");
+	}
+}
+if (count==0){
+document.write("검색 결과 없음");
+}
+</script>
+
+
+
+
+</ul>
 <hr>
 <hr>
 <hr>
