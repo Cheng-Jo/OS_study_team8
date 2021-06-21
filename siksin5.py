@@ -27,6 +27,7 @@ if __name__ == '__main__':
 	name.append(hfilter(str(html_name1)).strip())
 	score.append(nfilter(str(html_score1))[2:])
 	location.append(hfilter(str(html_loc1)).strip())
+	print(score)
 
 	req2 = requests.get('https://www.siksinhot.com/P/269870')
 	soup2 = BeautifulSoup(req2.content, 'html.parser')

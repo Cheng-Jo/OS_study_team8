@@ -7,9 +7,9 @@ from bs4 import BeautifulSoup
 from konlpy.tag import Kkma 
 
 def hfilter(s): 
-return re.sub(u'[^\,\.\d\?\!\u3130-\u318f\uac00-\ud7a3]+','',s) 
+	return re.sub(u'[^\,\.\d\?\!\u3130-\u318f\uac00-\ud7a3]+','',s) 
 def nfilter(s): 
-return re.sub(u'[^\,\?\!\u3130-\u318f\uac00-\ud7a3]+','',s) 
+	return re.sub(u'[^\,\?\!\u3130-\u318f\uac00-\ud7a3]+','',s) 
 
 if __name__ == '__main__': 
   kkma = Kkma() 
