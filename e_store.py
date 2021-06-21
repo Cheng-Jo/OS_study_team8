@@ -26,16 +26,22 @@ def f_address(adrress):
 	e ="동구"
 	n ="북구"
 	ss = "수성구"
-	if s in adrress:
-		return s
-	elif w in adrress:
-		return w
-	elif e in adrress:
-		return e
-	elif n in adrress:
-		return n
-	elif ss in adrress:
-		return ss
+	m = "중구"
+	tmp = adrress.split()
+	for i in range(0, len(tmp)):
+		print(tmp[i])
+		if s in tmp[i]:
+			return s
+		elif w in tmp[i]:
+			return w
+		elif e in tmp[i]:
+			return e
+		elif n in tmp[i]:
+			return n
+		elif ss in tmp[i]:
+			return ss
+		elif m in tmp[i]:
+			return m
 
 es_host="127.0.0.1"
 es_port="9200"
@@ -280,8 +286,6 @@ if __name__ == '__main__':
 	print(d_point) 
 	print("dining end")
 	es = Elasticsearch([{'host':es_host, 'port':es_port}],timeout=30)
-	s_ad1 = f_address(d_address)
-	s_ad2 = f_address(location)
 	for i in range(0,5):
 		s_ad1 = f_address(location[i])
 		e1={

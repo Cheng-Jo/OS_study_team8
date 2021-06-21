@@ -6,7 +6,7 @@ from elasticsearch import Elasticsearch
 es_host="127.0.0.1"
 es_port="9200"
 
-	
+
 if __name__== '__main__':
 	es = Elasticsearch([{'host':es_host, 'port':es_port}], timeout=30)
 	query1 = {"query":{"bool":{"must":[{"match":{"site":"siksin"}}]}}}
@@ -17,56 +17,15 @@ if __name__== '__main__':
 	queryss = {"query":{"bool":{"must":[{"match":{"s_ad":"수성구"}}]}}}
 	querye = {"query":{"bool":{"must":[{"match":{"s_ad":"동구"}}]}}}
 	queryw = {"query":{"bool":{"must":[{"match":{"s_ad":"서구"}}]}}}
-	lst1 =[]
-	lst2 =[]
-	lst3 = []
+	querym = {"query":{"bool":{"must":[{"match":{"s_ad":"중구"}}]}}}
+
+	
 	north = []
 	east = []
 	west = []
 	ssung = []
 	south = []
-	while True:
-		try:
-			docs = es.search(index='siksin', body=query1, size=5)
-			break
-		except Exception as e:
-			print('error')
-			continue
-	if docs['hits']['total']['value']>0:	
-		for doc in docs['hits']['hits']:
-			print(doc['_source'])
-			tmp = list(doc['_source'].values())
-			print(tmp)
-			lst1.append(tmp)
-#	print(lst1)
-	while True:
-		try:
-			docs = es.search(index='trip', body=query2, size=5)
-			break
-		except Exception as e:
-			print(1)
-			continue
-	if docs['hits']['total']['value']>0:
-		for doc in docs['hits']['hits']:
-			print(doc['_source'])
-			tmp = list(doc['_source'].values())
-			print(tmp)
-			lst2.append(tmp)
-#	print(lst2)
-	while True:
-		try:
-			docs = es.search(index='d_code', body=query3, size=5)
-			break
-		except Exception as e:
-			print(1)
-			continue
-	if docs['hits']['total']['value']>0:
-		for doc in docs['hits']['hits']:
-			print(doc['_source'])
-			tmp = list(doc['_source'].values())
-			print(tmp)
-			lst3.append(tmp)
-#	print(lst3)
+	mid = []
 #north
 	while True:
 		try:
@@ -101,9 +60,21 @@ if __name__== '__main__':
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
 			north.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='menu', body=queryn, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			north.append(tmp)
+	print("north")
 	print(north)
 #west
-		while True:
+	while True:
 		try:
 			docs = es.search(index='d_code', body=queryw, size=5)
 			break
@@ -136,9 +107,21 @@ if __name__== '__main__':
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
 			west.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='menu', body=queryw, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			west.append(tmp)
+	print("west")
 	print(west)
 #수성
-		while True:
+	while True:
 		try:
 			docs = es.search(index='d_code', body=queryss, size=5)
 			break
@@ -171,6 +154,18 @@ if __name__== '__main__':
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
 			ssung.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='menu', body=queryss, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			ssung.append(tmp)
+	print("수성구")
 	print(ssung)
 #동구
 	while True:
@@ -206,9 +201,21 @@ if __name__== '__main__':
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
 			east.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='menu', body=querye, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			east.append(tmp)
+	print("east")
 	print(east)
 #남구
-		while True:
+	while True:
 		try:
 			docs = es.search(index='d_code', body=querys, size=5)
 			break
@@ -241,4 +248,63 @@ if __name__== '__main__':
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
 			south.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='menu', body=querys, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			south.append(tmp)
+	print("south")
 	print(south)
+#mid
+	while True:
+		try:
+			docs = es.search(index='d_code', body=querym, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			mid.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='siksin', body=querym, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			mid.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='trip', body=querym, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			mid.append(tmp)
+	while True:
+		try:
+			docs = es.search(index='menu', body=querym, size=5)
+			break
+		except Exception as e:
+			print(1)
+			continue
+	if docs['hits']['total']['value']>0:
+		for doc in docs['hits']['hits']:
+			tmp = list(doc['_source'].values())
+			mid.append(tmp)
+	print("중구")
+	print(mid)
