@@ -6,17 +6,17 @@ from elasticsearch import Elasticsearch
 es_host="127.0.0.1"
 es_port="9200"
 
+	
 if __name__== '__main__':
 	es = Elasticsearch([{'host':es_host, 'port':es_port}], timeout=30)
 	query1 = {"query":{"bool":{"must":[{"match":{"site":"siksin"}}]}}}
 	query2 = {"query":{"bool":{"must":[{"match":{"site":"trip"}}]}}}
 	query3 = {"query":{"bool":{"must":[{"match":{"site":"d_code"}}]}}}
-	queryn = {"query":{"bool":{"must":[{"match":{"address":"북구"}}]}}}
-	querys = {"query":{"bool":{"must":[{"match":{"address":"남구"}}]}}}
-	queryss = {"query":{"bool":{"must":[{"match":{"address":"수성구"}}]}}}
-	querye = {"query":{"bool":{"must":[{"match":{"address":"동구"}}]}}}
-	queryw = {"query":{"bool":{"must":[{"match":{"address":"서구"}}]}}}
-
+	queryn = {"query":{"bool":{"must":[{"match":{"s_ad":"북구"}}]}}}
+	querys = {"query":{"bool":{"must":[{"match":{"s_ad":"남구"}}]}}}
+	queryss = {"query":{"bool":{"must":[{"match":{"s_ad":"수성구"}}]}}}
+	querye = {"query":{"bool":{"must":[{"match":{"s_ad":"동구"}}]}}}
+	queryw = {"query":{"bool":{"must":[{"match":{"s_ad":"서구"}}]}}}
 	lst1 =[]
 	lst2 =[]
 	lst3 = []
