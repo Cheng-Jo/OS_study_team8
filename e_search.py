@@ -37,6 +37,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			north.append(tmp)
 	while True:
 		try:
@@ -48,6 +49,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			north.append(tmp)
 	while True:
 		try:
@@ -59,6 +61,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			north.append(tmp)
 	while True:
 		try:
@@ -70,6 +73,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			north.append(tmp)
 	print("north")
 	print(north)
@@ -84,6 +88,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			west.append(tmp)
 	while True:
 		try:
@@ -95,6 +100,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			west.append(tmp)
 	while True:
 		try:
@@ -106,6 +112,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			west.append(tmp)
 	while True:
 		try:
@@ -117,6 +124,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			west.append(tmp)
 	print("west")
 	print(west)
@@ -131,6 +139,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			ssung.append(tmp)
 	while True:
 		try:
@@ -142,6 +151,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			ssung.append(tmp)
 	while True:
 		try:
@@ -153,6 +163,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			ssung.append(tmp)
 	while True:
 		try:
@@ -164,6 +175,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			ssung.append(tmp)
 	print("수성구")
 	print(ssung)
@@ -178,6 +190,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			east.append(tmp)
 	while True:
 		try:
@@ -189,6 +202,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			east.append(tmp)
 	while True:
 		try:
@@ -200,6 +214,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			east.append(tmp)
 	while True:
 		try:
@@ -211,6 +226,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			east.append(tmp)
 	print("east")
 	print(east)
@@ -225,6 +241,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			south.append(tmp)
 	while True:
 		try:
@@ -236,6 +253,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			south.append(tmp)
 	while True:
 		try:
@@ -247,6 +265,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			south.append(tmp)
 	while True:
 		try:
@@ -258,6 +277,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			south.append(tmp)
 	print("south")
 	print(south)
@@ -272,6 +292,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			mid.append(tmp)
 	while True:
 		try:
@@ -283,6 +304,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			mid.append(tmp)
 	while True:
 		try:
@@ -294,6 +316,7 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			mid.append(tmp)
 	while True:
 		try:
@@ -305,6 +328,22 @@ if __name__== '__main__':
 	if docs['hits']['total']['value']>0:
 		for doc in docs['hits']['hits']:
 			tmp = list(doc['_source'].values())
+			tmp.pop()
 			mid.append(tmp)
 	print("중구")
 	print(mid)
+	tlist =[]
+	for i in range(0,len(mid)):
+		str = ""
+		str = "사이트:" + mid[i][0] + " "
+		str = str + "가게이름:" + mid[i][1] + " "
+		str = str + "주소:" + mid[i][2] + " "
+		str = str + "메뉴:" + mid[i][3] + " "
+		str = str + "별점:" + mid[i][4] + " "
+		tlist.append(str)
+	print(len(north))	
+	print(len(west))
+	print(len(east))
+	print(len(south))
+	print(len(mid))
+	print(len(ssung))

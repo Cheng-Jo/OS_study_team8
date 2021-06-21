@@ -163,9 +163,10 @@ if __name__ == '__main__':
 	soup5 = BeautifulSoup(req5.content, 'html.parser')
 
 	html_name5 = soup5.find(id='title').get_text()
+	html_name5 = html_name5[:8]
 	html_score5 = soup5.find('strong').get_text()
 	html_loc5 = soup5.find(class_ = "txt_adr").get_text()
-	name.append(str(html_name5).strip()[6:])
+	name.append(str(html_name5).strip())
 	score.append(str(html_score5)[2:])
 	location.append(str(html_loc5).strip())
 
