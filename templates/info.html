@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.0 Transitional//EN”>
+<html>
+<head>
+<style>
+body { background-color : #A7C181; }
+h3 { color : #F43D00; }
+h4 { font-size: 20px !important; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); padding: 3px 5px; margin: 5px 0; BACKGROUND-COLOR: #A7C181; BORDER-BOTTOM: 2px solid #ccc; BORDER-TOP: 2px solid #ccc; BORDER-LEFT: #4D82B8 8px solid; BORDER-RIGHT: 2px solid #ccc; border-bottom: 2px solid #ccc}
+hr { border : 3px solid #F7E0A5; }
+span { color : blue; font-size : 20px; }
+</style><title>선택한 지역: </title></head>
+<body>
+<p><span style="background: linear-gradient(to right, #01ebf3, #A7C181); padding: 0.43em 1em; font-size: 40px; border-radius: 3px; color: #d1fdc8;">선택한 지역 || {{name}}</span></p>
+
+<hr>
+<hr>
+<hr>
+<p><span style="background: linear-gradient(to right, #758efe, #A7C181); padding: 0.3em 0.2em; font-size: 25px; border-radius: 3px; color: #fde2c8;">{{name}}에 위치한 맛집 리스트</span></p>
+
+<script>
+var north = {{nor|tojson}};
+var east = {{est|tojson}};
+var west = {{wst|tojson}};
+var sung = {{soo|tojson}};
+var south = {{sth|tojson}};
+var mid = {{middle|tojson}};
+var ds = {{dsg|tojson}};
+var nor_l = Number({{nl}});
+var est_l = Number({{el}});
+var wst_l = Number({{wl}});
+var soo_l = Number({{ssl}});
+var sth_l = Number({{sl}});
+var mid_l = Number({{ml}});
+var ds_l = Number({{dsl}});
+
+
+var myname = {{name|tojson}} ;
+if(myname == "중구")
+{
+	for(i=0; i<mid_l; i++)
+        {
+		document.write(mid[i]);
+		document.write("<br>");
+		document.write("<br>");
+		document.write("---------------------------------------");
+		document.write("<br>");
+	}
+}
+else if(myname == "남구")
+{
+        for(i=0; i<sth_l; i++)
+        {
+                document.write(south[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+else if(myname == "수성구")
+{
+        for(i=0; i<soo_l; i++)
+        {
+                document.write(sung[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+else if(myname == "서구")
+{
+        for(i=0; i<wst_l; i++)
+        {
+                document.write(west[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+else if(myname == "동구")
+{
+        for(i=0; i<est_l; i++)
+        {
+                document.write(east[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+else if(myname == "북구")
+{
+        for(i=0; i<nor_l; i++)
+        {
+                document.write(north[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+else if(myname == "달서구")
+{
+        for(i=0; i<ds_l; i++)
+        {
+                document.write(ds[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+
+
+</script>
+
+
+
+
+</ul>
+<hr>
+<hr>
+<hr>
+<h5></h5>
+<form>
+</form>
+</body>
+</html>
