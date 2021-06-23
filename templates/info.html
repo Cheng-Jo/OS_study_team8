@@ -23,12 +23,14 @@ var west = {{wst|tojson}};
 var sung = {{soo|tojson}};
 var south = {{sth|tojson}};
 var mid = {{middle|tojson}};
+var ds = {{dsg|tojson}};
 var nor_l = Number({{nl}});
 var est_l = Number({{el}});
 var wst_l = Number({{wl}});
 var soo_l = Number({{ssl}});
 var sth_l = Number({{sl}});
 var mid_l = Number({{ml}});
+var ds_l = Number({{dsl}});
 
 
 var myname = {{name|tojson}} ;
@@ -98,6 +100,18 @@ else if(myname == "북구")
                 document.write("<br>");
         }
 }
+else if(myname == "달서구")
+{
+        for(i=0; i<ds_l; i++)
+        {
+                document.write(ds[i]);
+                document.write("<br>");
+                document.write("<br>");
+                document.write("---------------------------------------");
+                document.write("<br>");
+        }
+}
+
 
 </script>
 

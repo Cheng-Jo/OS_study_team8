@@ -27,13 +27,14 @@ def f_address(adrress):
 	n ="북구"
 	ss = "수성구"
 	m = "중구"
+	ds = "달서구"
 	tmp = adrress.split()
 	for i in range(0, len(tmp)):
 		print(tmp[i])
 		if s in tmp[i]:
 			return s
-		elif w in tmp[i]:
-			return w
+		elif ds in tmp[i]:
+			return ds
 		elif e in tmp[i]:
 			return e
 		elif n in tmp[i]:
@@ -42,6 +43,8 @@ def f_address(adrress):
 			return ss
 		elif m in tmp[i]:
 			return m
+		elif w in tmp[i]:
+			return w
 
 es_host="127.0.0.1"
 es_port="9200"
@@ -147,7 +150,7 @@ if __name__ == '__main__':
 	html_loc3 = soup3.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name3).strip()[6:])
 	score.append(html_score3)
-	location.append(str(html_loc3).strip())
+	location.append(str(html_loc3).strip()[6:])
 
 	req4 = requests.get('https://www.siksinhot.com/P/268900')
 	soup4 = BeautifulSoup(req4.content, 'html.parser')
@@ -168,7 +171,7 @@ if __name__ == '__main__':
 	html_loc5 = soup5.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name5).strip())
 	score.append(html_score5)
-	location.append(str(html_loc5).strip())
+	location.append(str(html_loc5).strip()[6:])
 
 	print(name)
 	print(score)
@@ -338,7 +341,6 @@ if __name__ == '__main__':
 			"s_ad":s_ad4
 
 		}
-
 
 		res = es.index(index='menu', doc_type='me', id = i, body =e4)
 		print(res)

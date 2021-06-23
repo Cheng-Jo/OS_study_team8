@@ -50,6 +50,8 @@ queryss = {"query":{"bool":{"must":[{"match":{"s_ad":"수성구"}}]}}}
 querye = {"query":{"bool":{"must":[{"match":{"s_ad":"동구"}}]}}}
 queryw = {"query":{"bool":{"must":[{"match":{"s_ad":"서구"}}]}}}
 querym = {"query":{"bool":{"must":[{"match":{"s_ad":"중구"}}]}}}
+queryds = {"query":{"bool":{"must":[{"match":{"s_ad":"달서구"}}]}}}
+
 
 	
 north = []
@@ -58,6 +60,7 @@ west = []
 ssung = []
 south = []
 mid = []
+ds = []
 #north
 while True:
 	try:
@@ -337,14 +340,61 @@ if docs['hits']['total']['value']>0:
 		mid.append(tmp)
 print("중구")
 print(mid)
-
+#달서
+while True:
+	try:
+		docs = es.search(index='d_code', body=queryds, size=5)
+		break
+	except Exception as e:
+		print(1)
+		continue
+if docs['hits']['total']['value']>0:
+	for doc in docs['hits']['hits']:
+		tmp = list(doc['_source'].values())
+		ds.append(tmp)
+while True:
+	try:
+		docs = es.search(index='siksin', body=queryds, size=5)
+		break
+	except Exception as e:
+		print(1)
+		continue
+if docs['hits']['total']['value']>0:
+	for doc in docs['hits']['hits']:
+		tmp = list(doc['_source'].values())
+		ds.append(tmp)
+while True:
+	try:
+		docs = es.search(index='trip', body=queryds, size=5)
+		break
+	except Exception as e:
+		print(1)
+		continue
+if docs['hits']['total']['value']>0:
+	for doc in docs['hits']['hits']:
+		tmp = list(doc['_source'].values())
+		ds.append(tmp)
+		print(ds)
+while True:
+	try:
+		docs = es.search(index='menu', body=queryds, size=5)
+		break
+	except Exception as e:
+		print(1)
+		continue
+if docs['hits']['total']['value']>0:
+	for doc in docs['hits']['hits']:
+		tmp = list(doc['_source'].values())
+		ds.append(tmp)
+print("달서구")
+print(ds)
 north_f = []
 east_f = []
 west_f = []
 ssung_f = []
 south_f = []
 mid_f =[]
-
+ds_f = []
 north = score_float(north)
 north.sort(key=lambda x:-x[4])
 north = score_str(north)
@@ -354,7 +404,9 @@ east = score_str(east)
 west = score_float(west)
 west.sort(key=lambda x:-x[4])
 west = score_str(west)
-
+ds = score_float(ds)
+ds.sort(key=lambda x:-x[4])
+ds = score_str(ds)
 ssung = score_float(ssung)
 ssung.sort(key=lambda x:-x[4])
 ssung = score_str(ssung)
@@ -372,12 +424,21 @@ west_f= mk_para(west,west_f)
 ssung_f = mk_para(ssung,ssung_f)
 south_f = mk_para(south,south_f)
 mid_f = mk_para(mid, mid_f)
+ds_f = mk_para(ds, ds_f)
 north_l = len(north)
-east_l = len(east)
-west_l = len(west)
-ssung_l = len(ssung)
-south_l = len(south)
-mid_l = len(mid)
+east_l = len(east_f)
+west_l = len(west_f)
+ssung_l = len(ssung_f)
+south_l = len(south_f)
+mid_l = len(mid_f)
+ds_l = len(ds_f)
+print(north_l)
+print(east_l)
+print(west_l)
+print(ssung_l)
+print(south_l)
+print(mid_l)
+print(ds_l)
 
 #######################Elastic search END######################################
 ###############################################################################
@@ -395,7 +456,7 @@ def info():
 
 		myname = request.args.get('rating')
 	
-		return render_template('info.html', name=myname,nor=north_f, est = east_f, wst = west_f, soo = ssung_f, sth = south_f, middle = mid_f, el = east_l, wl = west_l, ssl = ssung_l, sl = south_l, ml = mid_l)
+		return render_template('info.html', name=myname,nor=north_f, est = east_f, wst = west_f, soo = ssung_f, sth = south_f, middle = mid_f, dsg = ds_f, nl = north_l,  el = east_l, wl = west_l, ssl = ssung_l, sl = south_l, ml = mid_l, dsl = ds_l)
 
 
 
