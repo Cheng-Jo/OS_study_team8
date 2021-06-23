@@ -126,7 +126,7 @@ if __name__ == '__main__':
 	html_score1 = soup1.find('strong').get_text()
 	html_loc1 = soup1.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name1).strip())
-	score.append(str(html_score1)[2:])
+	score.append(html_score1)
 	location.append(str(html_loc1).strip()[6:])
 
 	req2 = requests.get('https://www.siksinhot.com/P/269870')
@@ -136,7 +136,7 @@ if __name__ == '__main__':
 	html_score2 = soup2.find('strong').get_text()
 	html_loc2 = soup2.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name2).strip())
-	score.append(str(html_score2)[2:])
+	score.append(html_score2)
 	location.append(str(html_loc2).strip()[6:])
 
 	req3 = requests.get('https://www.siksinhot.com/P/264776')
@@ -146,7 +146,7 @@ if __name__ == '__main__':
 	html_score3 = soup3.find('strong').get_text()
 	html_loc3 = soup3.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name3).strip()[6:])
-	score.append(str(html_score3)[2:])
+	score.append(html_score3)
 	location.append(str(html_loc3).strip())
 
 	req4 = requests.get('https://www.siksinhot.com/P/268900')
@@ -156,7 +156,7 @@ if __name__ == '__main__':
 	html_score4 = soup4.find('strong').get_text()
 	html_loc4 = soup4.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name4).strip())
-	score.append(str(html_score4)[2:])
+	score.append(html_score4)
 	location.append(str(html_loc4).strip()[6:])
 
 	req5 = requests.get('https://www.siksinhot.com/P/356055')
@@ -167,7 +167,7 @@ if __name__ == '__main__':
 	html_score5 = soup5.find('strong').get_text()
 	html_loc5 = soup5.find(class_ = "txt_adr").get_text()
 	name.append(str(html_name5).strip())
-	score.append(str(html_score5)[2:])
+	score.append(html_score5)
 	location.append(str(html_loc5).strip())
 
 	print(name)
@@ -258,27 +258,27 @@ if __name__ == '__main__':
 
 	req1 = requests.get('https://www.diningcode.com/profile.php?rid=hq047MomVuaT') 
 	soup1 = BeautifulSoup(req1.text, 'html.parser') 
-	d_point.append(soup1.find_all("span", "point")[1].get_text()) 
+	d_point.append(soup1.find_all("span", "point")[1].get_text()[:-1]) 
 	d_address.append(soup1.find("li","locat").get_text()[4:])
 
 	req2 = requests.get('https://www.diningcode.com/profile.php?rid=OO6PTlAgMlnk') 
 	soup2 = BeautifulSoup(req2.text, 'html.parser') 
-	d_point.append(soup2.find_all("span", "point")[1].get_text()) 
+	d_point.append(soup2.find_all("span", "point")[1].get_text()[:-1]) 
 	d_address.append(soup1.find("li","locat").get_text()[4:])
 
 	req3 = requests.get('https://www.diningcode.com/profile.php?rid=gRC5ab8eUCWC') 
 	soup3 = BeautifulSoup(req3.text, 'html.parser') 
-	d_point.append(soup3.find_all("span", "point")[1].get_text()) 
+	d_point.append(soup3.find_all("span", "point")[1].get_text()[:-1]) 
 	d_address.append(soup1.find("li","locat").get_text()[4:])
 
 	req4 = requests.get('https://www.diningcode.com/profile.php?rid=haiJHpKMyHaM') 
 	soup4 = BeautifulSoup(req4.text, 'html.parser') 
-	d_point.append(soup4.find_all("span", "point")[1].get_text()) 
+	d_point.append(soup4.find_all("span", "point")[1].get_text()[:-1]) 
 	d_address.append(soup1.find("li","locat").get_text()[4:])
 
 	req5 = requests.get('https://www.diningcode.com/profile.php?rid=rlBuOzqmsy8y') 
 	soup5 = BeautifulSoup(req5.text, 'html.parser') 
-	d_point.append(soup5.find_all("span", "point")[1].get_text()) 
+	d_point.append(soup5.find_all("span", "point")[1].get_text()[:-1]) 
 	d_address.append(soup1.find("li","locat").get_text()[4:])
 
 	print(d_code) 
