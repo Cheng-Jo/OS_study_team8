@@ -18,15 +18,23 @@ from elasticsearch import Elasticsearch
 es_host="127.0.0.1"
 es_port="9200"
 
+def score_float(list):
+	for i in range(0,len(list)):
+		list[i][4] = float(list[i][4])
+	return list
+def score_str(list):
+	for i in range(0,len(list)):
+		list[i][4] = str(list[i][4])
+	return list
 
 def mk_para(list, f_list):
 	for i in range(0,len(list)):
 		str = ""
-		str = "사이트:" + list[i][0] + " "
-		str = str + "가게이름:" + list[i][1] + " "
-		str = str + "주소:" + list[i][2] + " "
-		str = str + "메뉴:" + list[i][3] + " "
-		str = str + "별점:" + list[i][4] + " "
+		str = "사이트:" + list[i][0] + " /"
+		str = str + "가게이름:" + list[i][1] + " /"
+		str = str + "주소:" + list[i][2] + " /"
+		str = str + "메뉴:" + list[i][3] + " /"
+		str = str + "별점:" + list[i][4] + " /"
 		f_list.append(str)
 	return f_list
 
@@ -337,6 +345,26 @@ ssung_f = []
 south_f = []
 mid_f =[]
 
+north = score_float(north)
+north.sort(key=lambda x:-x[4])
+north = score_str(north)
+east = score_float(east)
+east.sort(key=lambda x:-x[4])
+east = score_str(east)
+west = score_float(west)
+west.sort(key=lambda x:-x[4])
+west = score_str(west)
+
+ssung = score_float(ssung)
+ssung.sort(key=lambda x:-x[4])
+ssung = score_str(ssung)
+
+south = score_float(south)
+south.sort(key=lambda x:-x[4])
+south = score_str(south)
+mid = score_float(mid)
+mid.sort(key=lambda x:-x[4])
+mid = score_str(mid)
 
 north_f = mk_para(north,north_f)
 east_f = mk_para(east,east_f)

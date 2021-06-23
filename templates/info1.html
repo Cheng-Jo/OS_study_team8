@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.0 Transitional//EN”>
+<html>
+<head>
+<style>
+body { background-color : #D3D3D3; }
+hr { border : 3px solid #F7E0A5; }
+span { color : blue; font-size : 20px; }
+</style><title>선택한 사이트: </title></head>
+<body>
+<h3> 선택한 사이트: {{name}} </h3>
+<hr>
+<hr>
+<hr>
+<h3>맛집 리스트</h3>
+
+    <ul>
+        {% for i in list %}
+	<hr>
+	<h9><<이름>><h9>
+            <li>{{i}}</li>
+        {% endfor %}
+
+    </ul>
+<hr>
+<hr>
+<hr>
+<h5></h5>
+<form>
+</form>
+</body>
+</html>
